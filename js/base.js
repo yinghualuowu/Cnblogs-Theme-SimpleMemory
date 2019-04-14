@@ -821,7 +821,7 @@ function Base() {
             menuClassify     = $('#sb-classify'),
             menuRecord       = $('#sb-record'),
             menuTopview      = $('#sb-topview'),
-            menuTopDiggPosts = $('#sb-topDiggPosts'),
+            menuTopDiggPosts = $('#sb-topDiggPosts');
 
         // 添加个人信息
         function setIntroduce() {
