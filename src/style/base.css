@@ -1254,24 +1254,14 @@ button {
     _height: 15px;
     position: absolute;
     margin: 0;
-    margin-top: 200px;
+    margin-top: 20vh;
     left: 0;
     right: 0;
-    background: #232323;
     padding: 17px 0 27px;
     text-align: center;
     color: #888;
     font-size: 12px;
     line-height: 1.5;
-}
-.footer-image {
-    background: url(https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/footer.png) no-repeat 50%;
-    height: 368px;
-    z-index: 1;
-    position: absolute;
-    bottom: 70px;
-    width: 100%;
-    pointer-events: none;
 }
 
 .my-face {
@@ -3389,6 +3379,7 @@ blockquote p {
     bottom: 10px;
     right: 10px;
     min-width: 24px;
+    z-index: 1;
 }
 
 #rightMenu i {
@@ -3685,6 +3676,7 @@ blockquote p {
 #bottomProgressBar {
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
     z-index: 998;
 }
@@ -3802,7 +3794,7 @@ span.cnblogs_code {
     display: none !important;
 }
 
-#aplayer {
+body>meting-js, #aplayer {
     -webkit-transform: translateZ(0);
 }
 
@@ -3922,9 +3914,52 @@ span.cnblogs_code {
 }
 
 /* ==========================================================================
+   文章信息
+   ========================================================================== */
+.article-info {
+    color: #fff;
+    margin-top: 30px;
+}
+
+.article-info-text {
+    font-size: 18px;
+    font-family: 'Playball', cursive;
+    margin-bottom: 10px;
+}
+
+.article-info-tag {
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    position: relative;
+    background-image: none;
+    box-shadow: none;
+    margin: 0 0 0 10px;
+    padding: 0 5px;
+    height: 22px;
+    line-height: 22px;
+    color: #fff;
+    width: fit-content;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+}
+
+.article-tag-class-color {
+    background-color: #E8A258;
+}
+
+.article-tag-color {
+    background-color: #6fa3ef;
+}
+
+/* ==========================================================================
    Loading
    ========================================================================== */
-#loading{
+a[name=top], #loading{
     background-color: rgb(240, 240, 240);
     z-index: 1099;
     position: fixed;
@@ -4128,7 +4163,7 @@ a#green_channel_wechat {
         line-height: 1.3em;
     }
 
-    #sideToolbar, #music-box, .scroll-down, #evanyou, #aplayer, #homeTopCanvas, #notHomeTopCanvas {
+    #sideToolbar, #music-box, .scroll-down, #evanyou, body>meting-js, #aplayer, #homeTopCanvas, #notHomeTopCanvas {
         display: none !important;
     }
 }
@@ -4217,7 +4252,7 @@ a#green_channel_wechat {
         width: 31px !important;
     }
 
-    #pageAnimationOffOn, #sideToolbar, #music-box, .scroll-down, #evanyou, #canvas, #aplayer,
+    #pageAnimationOffOn, #sideToolbar, #music-box, .scroll-down, #evanyou, #canvas, body>meting-js, #aplayer,
     #homeTopCanvas, #notHomeTopCanvas, #bgCanvas
     {
         display: none !important;
