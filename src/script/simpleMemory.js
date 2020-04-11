@@ -4,6 +4,7 @@
  * @author: BNDong, dbnuo@foxmail.com
  **/
 if (initCheck()) {
+
     var sidebarHtml =
         '<div class="container">' +
         '    <div class="menu-wrap optiscroll" id="menuWrap" style="display:none">' +
@@ -73,8 +74,7 @@ if (initCheck()) {
         '    <canvas id="notHomeTopCanvas"></canvas>' +
         '    <div class="vertical">' +
         '        <div class="main-header-content inner">' +
-        '            <link href="https://fonts.proxy.ustclug.org/css?family=Playball" rel="stylesheet">' +
-        '            <h1 class="page-title" style="font-family: \'Playball\', cursive;" id="homeTopTitle"></h1>' +
+        '            <h1 class="page-title" id="homeTopTitle"></h1>' +
         '            <h2 class="page-description" id="hitokoto"></h2>' +
         '            <h3 class="page-author" id="hitokotoAuthor"></h3>' +
         '            <h1 class="sb-title" id="sbTitle"></h1>' +
@@ -174,15 +174,20 @@ if (initCheck()) {
             animateSections: true
         },
         homeTopImg: [
-            "https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/home_top_bg.webp"
+            "https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/home_top_bg.webp"
         ],
         homeBannerText: "",
         homeBannerTextType: "jinrishici",
         essayTopImg: [
-            "https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/nothome_top_bg.webp"
+            "https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/nothome_top_bg.webp"
         ],
         essayCodeHighlightingType: 'cnblogs',
         essayCodeHighlighting: '',
+        essayCode: {
+            fontFamily: "'Ubuntu Mono',monospace",
+            fontSize: "14px"
+        },
+        codeMaxHeight: false,
         essaySuffix: {
             codeImgUrl: '',
             aboutHtml: '',
@@ -199,6 +204,20 @@ if (initCheck()) {
         consoleList: [],
         bookList: [],
         themeAuthor: false,
+        isVersionMapping: false,
+        switchDayNight: {
+            enable: true,
+            auto: {
+                enable: false,
+                dayHour: 5,
+                nightHour: 19
+            }
+        },
+        reward: {
+            enable: false,
+            wechatpay: '',
+            alipay: ''
+        },
     };
 
     window.cnblogsConfig = $.extend( true, window.cnblogsConfigDefault, window.cnblogsConfig );
@@ -229,13 +248,8 @@ function initCheck() {
 function getVersionConfig() {
 
     window.cnblogsConfig.CnVersions = window.cnblogsConfig.GhVersions;
-    if (window.cnblogsConfig.GhUserName === 'BNDong') {
 
-        $.getScript('https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/version.js', function () {
-            setConfVersion();
-        });
-
-    } else {
+    if (window.cnblogsConfig.isVersionMapping) {
         var url = 'https://raw.githubusercontent.com/' + window.cnblogsConfig.GhUserName + '/' + window.cnblogsConfig.GhRepositories + '/master/version.conf';
 
         $.ajax({
@@ -249,6 +263,42 @@ function getVersionConfig() {
                 window.themeVersion && setConfVersion();
             }
         });
+
+    } else if(window.cnblogsConfig.GhUserName === 'BNDong') {
+        window.themeVersion = [
+            [
+                "v1.1.6",
+                "d8adfb50252062f658350bda29d7145f5eff0b80"
+            ]
+            ,
+            [
+                "v1.1.8",
+                "461aab69de17a84f0af9ff0c326bfcb94438b06c"
+            ]
+            ,
+            [
+                "v1.2.2",
+                "08eab99303d7c463a495adabd8feccc784a8507d"
+            ]
+            ,
+            [
+                "v1.2.3",
+                "36901bf16e2aa3656d4e6f78d44486273b0b8972"
+            ]
+            ,
+            [
+                "v1.2.4",
+                "9354db2147c11fc56cfe02a502f1f8229332fc2f"
+            ]
+            ,
+            [
+                "v1.2.5",
+                "4d744f980758500078df349520472e3b360fb841"
+            ]
+        ];
+        setConfVersion();
+    } else {
+        init();
     }
 
     function setConfVersion() {

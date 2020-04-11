@@ -42,7 +42,9 @@
 ?> JavaScript 对象是被命名值的容器。值以名称:值对的方式来书写（名称和值由冒号分隔）。
        
 
-## 仓库配置
+## 主题仓库配置
+
+用于设置样式文件加载源的配置。
 
 ### GhUserName - GitHub用户
 
@@ -191,7 +193,38 @@ window.cnblogsConfig = {
 
 ```javascript
 window.cnblogsConfig = {
-    webpageIcon: "https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/blog_logo.webp",
+    webpageIcon: "https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/blog_logo.webp",
+}
+```
+
+### switchDayNight - 日/夜间模式
+
+?> 版本 >= v1.2.8
+
+* 类型：```Object```
+* 默认值：
+
+```json
+{
+    enable: true,       // 是否开启日/夜间模式切换按钮
+    auto: {             // 自动切换相关配置
+        enable: false,  // 开启自动切换
+        dayHour: 5,     // 日间模式开始时间，整数型，24小时制
+        nightHour: 19   // 夜间模式开始时间，整数型，24小时制
+    }
+}
+```
+
+日/夜间模式配置。页面使用日/夜间模式优先级：用户设置 > 自动切换 > 默认。
+
+```javascript
+window.cnblogsConfig = {
+    switchDayNight: {
+        enable: true,
+        auto: {
+            enable: true
+        }
+    },
 }
 ```
 
@@ -207,7 +240,7 @@ window.cnblogsConfig = {
 
 ```javascript
 window.cnblogsConfig = {
-    fontIconExtend: "//at.alicdn.com/t/font_543384_ezv3l7gd9r7.css",
+    fontIconExtend: "//at.alicdn.com/t/font_xxxxxxxxxx.css",
 }
 ```
 
@@ -497,7 +530,7 @@ window.cnblogsConfig = {
 
 ```json
 [
-    "https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/home_top_bg.webp"
+    "https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/home_top_bg.webp"
 ]
 ```
 
@@ -506,8 +539,8 @@ window.cnblogsConfig = {
 ```javascript
 window.cnblogsConfig = {
     homeTopImg: [
-        "https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/home_top_bg.webp",
-        "https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/home_top_bg.webp"
+        "https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/home_top_bg.webp",
+        "https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/home_top_bg.webp"
     ],
 }
 ```
@@ -554,7 +587,7 @@ one：每日获取一句话
 
 ```json
 [
-    "https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/nothome_top_bg.webp"
+    "https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/nothome_top_bg.webp"
 ]
 ```
 
@@ -563,8 +596,8 @@ one：每日获取一句话
 ```javascript
 window.cnblogsConfig = {
     essayTopImg: [
-        "https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/nothome_top_bg.webp",
-        "https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/nothome_top_bg.webp"
+        "https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/nothome_top_bg.webp",
+        "https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/nothome_top_bg.webp"
     ],
 }
 ```
@@ -579,7 +612,7 @@ window.cnblogsConfig = {
     codeImgUrl   : '', // >= v1.1.5 左侧图片设置，不配置使用 window.cnblogsConfig.blogAvatar
     aboutHtml    : '', // 关于博主，不配置使用默认
     copyrightHtml: '', // 版权声明，不配置使用默认
-    supportHtml  : '',  // 声援博主，不配置使用默认
+    supportHtml  : '', // 声援博主，不配置使用默认
 }
 ```
 
@@ -593,9 +626,74 @@ window.cnblogsConfig = {
 }
 ```
 
-## 代码高亮配置
+### reward - 打赏
 
-### 使用博客园默认高亮
+?> 版本 >= v1.2.7
+
+* 类型：```Object```
+* 默认值：
+
+```json
+{
+    enable: false, // 是否开启打赏功能
+    wechatpay: '', // 微信支付二维码图片URL
+    alipay: '' // 支付宝支付二维码图片URL
+}
+```
+
+文章打赏按钮，显示在页面右下角。
+
+```javascript
+window.cnblogsConfig = {
+    reward: {
+        enable: true,
+        wechatpay: '//xxxx.png',
+    },
+}
+```
+
+## 代码相关配置
+
+### codeMaxHeight - 限制代码框高度
+
+?> 版本 >= v1.2.5
+
+* 类型：```Boolean```
+* 默认值：```"false"```
+
+限制代码框的最大高度；如开启，代码框高度不会超过页面可视区域的70%，隐藏部分通过滚动的方式查看。
+
+```javascript
+window.cnblogsConfig = {
+    codeMaxHeight: true,
+}
+```
+
+### essayCode - 代码框统一样式设置
+
+?> 版本 >= v1.2.9
+
+* 类型：```Object```
+* 默认值：
+
+```json
+{
+    fontFamily: "'Ubuntu Mono',monospace", // 代码框字体
+    fontSize: "14px" // 代码框字体大小
+}
+```
+
+代码框统一样式设置，目前只有字体设置，看需求后续可能会增加配置项。
+
+```javascript
+window.cnblogsConfig = {
+    essayCode: {
+        fontSize: "16px",
+    },
+}
+```
+
+### 使用博客园默认代码样式
 
 #### essayCodeHighlightingType
 
@@ -617,7 +715,7 @@ window.cnblogsConfig = {
 
 当使用博客园代码高亮样式时，此配置不会对渲染产生影响。
 
-### 使用 highlightjs
+### 使用 highlightjs 渲染代码
 
 * 相关文档：[highlight](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v1.1/#/Docs/Guide/highlight)
 
@@ -626,7 +724,7 @@ window.cnblogsConfig = {
 * 类型：```String```
 * 默认值：```"cnblogs"```
 
-使用```highlightjs```插件渲染代码高亮。
+使用 ```highlightjs``` 插件渲染代码高亮。
 
 ```javascript
 window.cnblogsConfig = {
@@ -663,7 +761,7 @@ default、a11y-dark、a11y-light、agate、an-old-hope、androidstudio、arduino
 */
 ```
 
-### 使用 prettify
+### 使用 prettify 渲染代码
 
 #### essayCodeHighlightingType
 
@@ -719,7 +817,6 @@ window.cnblogsConfig = {
     footerStyle: 1,
 }
 ```
-
 
 ### bottomBlogroll - 友情链接
 
@@ -782,5 +879,23 @@ window.cnblogsConfig = {
          ['BNDong GitHub', 'https://github.com/BNDong'],
          ['BNDong Email', 'dbuo@foxmail.com'],
     ],
+}
+```
+
+## 版本映射
+
+### isVersionMapping
+
+?> 版本 >= v1.2.6
+
+* 类型：```Boolean```
+* 相关文档：[版本映射](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v1.1/#/Docs/Guide/versionMapping)
+* 默认值：```false```
+
+是否开启版本映射，默认关闭。
+
+```javascript
+window.cnblogsConfig = {
+    isVersionMapping: true,
 }
 ```

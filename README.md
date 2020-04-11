@@ -18,6 +18,8 @@
 
 # Silence
 
+> !! 由于 Gitee 屏蔽了本项目库 😓，所有引用至 Gitee 的静态资源全部失效，现已移除。如果出现页面空白、样式错乱、无法加载的现象，可以尝试更新版本至最新版本！
+
 📖 本主题以阅读为核心，美化博客园的显示效果，提高用户体验。 
 
 🍰 基于博皮“SimpleMemor”进行的修改；[页面效果](https://www.cnblogs.com/bndong/)
@@ -26,8 +28,8 @@
 
 # Docs
 
-- [v1.\*.*](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v1.1)　　[备用地址](https://www.dbnuo.com/Cnblogs-Theme-SimpleMemory/docs/v1.1/)
-- [v1.0.*](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v1.0)　　[备用地址](https://www.dbnuo.com/Cnblogs-Theme-SimpleMemory/docs/v1.0/)
+- v1.\*.*版本：[永久地址](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v1.1)　[备用地址](https://www.dbnuo.com/Cnblogs-Theme-SimpleMemory/docs/v1.1/)
+- v1.0.*版本：[永久地址](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v1.0)　[备用地址](https://www.dbnuo.com/Cnblogs-Theme-SimpleMemory/docs/v1.0/)
 
 > 推荐大家使用最新版本，新版本的发布往往代表着功能的完善和bug的修复！
 > <br>文档的源文件在 /docs 目录，大家有更完善的文档或建议可以 Pull Request 或 Issues 给我。
@@ -50,8 +52,6 @@
 <a href="https://github.com/sky5454" target="_blank">
     <img width=50 src="https://avatars2.githubusercontent.com/u/12370628?s=460&v=4"/>
 </a>
-
-> 提交代码或改进方案，被采纳的同学会出现在这里。
 
 # Author
 

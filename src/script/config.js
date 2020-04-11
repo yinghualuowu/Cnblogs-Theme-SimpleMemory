@@ -65,6 +65,9 @@ require.config({
         classie: {
             deps: ['snapSvg'],
         },
+        title: {
+            deps: ['tools'],
+        },
         main4: {
             deps: ['snapSvg','classie', 'css!'+getJsDelivrUrl('menu_bubble.css')]
         },
@@ -95,8 +98,8 @@ require.config({
         base: {
             deps: [
                 'tools',
-                'css!'+getJsDelivrUrl('footer.css'),
-                'css!https://at.alicdn.com/t/font_543384_5vq8w0sg3p5.css', // 阿里云字体图标
+                'css!//at.alicdn.com/t/font_543384_6z41jpa1ptb.css', // 阿里云字体图标
+                'css!'+getJsDelivrUrl('google-fonts.css'), // 谷歌字体
             ]
         },
 
